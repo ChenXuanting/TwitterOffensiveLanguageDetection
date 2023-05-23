@@ -1,3 +1,5 @@
+Read the report for project information.
+
 Package required:
 1. scikit-learn
 2. tqdm
