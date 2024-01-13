@@ -1,25 +1,49 @@
-Package required:
-1. scikit-learn
-2. tqdm
-3. regex
-4. pytorch
-5. cuda for gpu
-6. flair
-7. transformers
-8. sentencepiece
-9. ipywidgets
+Twitter Offensive Language Detection
+This project focuses on detecting offensive language in tweets using various machine learning models. It allows users to train models on a dataset of tweets and evaluate the performance of these models in identifying offensive content.
 
-Our data folder: datasets
+Getting Started
+Prerequisites
+Before you can run this project, ensure you have Python installed on your machine. Additionally, you might need to install specific Python libraries. You can install these dependencies via pip:
 
-Our code includes two files:
-1. FinalProject.ipynb 
-2. utility.py
+bash
+Copy code
+pip install -r requirements.txt
+Cloning the Repository
+To clone the repository and run it on your local machine, execute the following command in your terminal:
 
-The jupyter file FinalProject.ipynb is our major file which contains all training and evaluating process.
-The python file utility.py contains helper functions for data loading and processing.
+bash
+Copy code
+git clone https://github.com/ChenXuanting/TwitterOffensiveLanguageDetection.git
+This will download the code to your local machine.
 
-The default setting was set for subtask A. Follow the comments to set for subtask B and C.
+Training the Model
+To train a model, navigate to the project directory and run train_model.py with the desired model name as an argument. For example:
 
-Each time a model was trained and a prediction was made, they will be saved to folder cached-results.
-The FinalProject file runs a single model each time, but results will be saved for ensemble.
-When doing ensemble, modify the for loop starting with "for f in files" in the last cell to select desired models.
+bash
+Copy code
+python train_model.py albert-base-v1
+This will start the training process for the specified model. The trained model and its predictions will be saved in the cached-results folder.
+
+Available Models
+You can train the models with any of the following pre-trained model architectures:
+
+Albert: 'albert-base-v1', 'albert-large-v1', 'albert-xlarge-v1', 'albert-xxlarge-v1', 'albert-base-v2', 'albert-large-v2', 'albert-xlarge-v2', 'albert-xxlarge-v2'
+Roberta: 'roberta-base', 'roberta-large'
+XLM-Roberta: 'xlm-roberta-base', 'xlm-roberta-large'
+BERT: 'bert-base-uncased', 'bert-large-uncased'
+Browse Hugging Face Models for more pretrained models.
+
+Modifying Hyperparameters
+To change the hyperparameters for model training, you can modify the train_model.py file. Adjust the parameters as needed to optimize the model's performance.
+
+Ensemble Model Performance
+After training multiple models, you can evaluate their ensemble performance by running ensemble.py. This script combines the predictions from different models to potentially improve the overall accuracy.
+
+bash
+Copy code
+python ensemble.py
+Contributing
+Feel free to fork this repository and submit pull requests with any enhancements. You can also open issues for any bugs found or features you think would be beneficial.
+
+License
+This project is licensed under the MIT License - see the LICENSE file for details.

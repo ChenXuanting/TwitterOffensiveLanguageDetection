@@ -21,9 +21,9 @@ torch.cuda.empty_cache()
 """!!!Modify this part to change models!!!"""
 
 Model_name = sys.argv[1]
-    #All models: 'albert-base-v1', 'albert-large-v1', 'albert-xlarge-v1', 'albert-xxlarge-v1'
+    #Available models: 'albert-base-v1', 'albert-large-v1', 'albert-xlarge-v1', 'albert-xxlarge-v1'
                 #'albert-base-v2', 'albert-large-v2', 'albert-xlarge-v2', 'albert-xxlarge-v2'
-                #'roberta-base', 'roberta-large','xlm-roberta-base'
+                #'roberta-base', 'roberta-large','xlm-roberta-base', 'xlm-roberta-large', 'bert-base-uncased', 'bert-large-uncased'
                 #Browse https://huggingface.co/ for more pretrained models
 Model_type = Model_name.split('-')[0]
 if Model_type == 'xlm':
