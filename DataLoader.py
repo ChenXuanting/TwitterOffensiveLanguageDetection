@@ -11,15 +11,24 @@ def preprocess(df, tokenizer, seq_len):
     # Remove leading and trailing spaces, and reduce multiple spaces to one
     df['tweet'] = df['tweet'].str.strip().str.replace(r'\s+', ' ', regex=True)
 
+    # Transform labels to 0 and 1
     df['label'] = df['label'].replace({'NOT': 0, 'OFF': 1})
 
+    # Tokenize raw tweets
     df['tokens'] = df['tweet'].apply(tokenizer.tokenize)
+    # Truncate by sequence length, leaving 2 for [SEP] and [CLS]
     df['tokens'] = df['tokens'].apply(lambda x: x[:(seq_len - 2)] if len(x) > seq_len - 2 else x)
+    # Adding seperation and closing tokens
     df['tokens'] = df['tokens'].apply(lambda x: [tokenizer.cls_token] + x + [tokenizer.sep_token])
+    # Convert tokens to integers
     df['input_ids'] = df['tokens'].apply(tokenizer.convert_tokens_to_ids)
+    # Attention mask
     df['input_mask'] = df['input_ids'].apply(lambda x: [1] * len(x))
+    # Segment ID
     df['segment_ids'] = [[0] * seq_len for _ in range(len(df))]
+    # Padding with 0 on the right
     df['input_ids'] = df['input_ids'].apply(lambda x: x + [0] * (seq_len - len(x)))
+    # Padding with 0 on the right
     df['input_mask'] = df['input_mask'].apply(lambda x: x + [0] * (seq_len - len(x)))
 
     return df
@@ -42,6 +51,8 @@ def load_test_data(tokenizer, seq_len):
     df_20_test = pd.read_csv("datasets/OffensEval20/test_a_tweets.tsv", sep='\t')
     df_labels = pd.read_csv("datasets/OffensEval20/englishA-goldlabels.csv", names=['id','label'])
     merged_20_test = pd.merge(df_20_test, df_labels, on='id', how='inner')
+
+    # Return unprocessed dataframe for evaluating
     if tokenizer == "testing_only":
         merged_20_test['label'] = merged_20_test['label'].replace({'NOT': 0, 'OFF': 1})
         return merged_20_test
