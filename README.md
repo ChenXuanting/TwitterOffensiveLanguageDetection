@@ -11,7 +11,7 @@ This project focuses on detecting offensive language in tweets using various mac
 
 ### Prerequisites
 
-Before you can run this project, ensure you have Python installed on your machine. Additionally, you might need to install specific Python libraries. You can install these dependencies via pip:
+Before you can run this project, ensure you have Python installed on your machine. Additionally, you might need to install specific Python libraries. You can install these dependencies via pip (if your Python version is under 3.8, you might need `pickle5` for the latest features):
 
 ```bash
 pip install -r requirements.txt
