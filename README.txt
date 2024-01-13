@@ -1,5 +1,3 @@
-Read the report for project information.
-
 Package required:
 1. scikit-learn
 2. tqdm
@@ -7,6 +5,9 @@ Package required:
 4. pytorch
 5. cuda for gpu
 6. flair
+7. transformers
+8. sentencepiece
+9. ipywidgets
 
 Our data folder: datasets
 
