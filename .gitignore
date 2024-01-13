@@ -1,9 +1,6 @@
 __pycache__/
 *.pyc
 
-/cashed-results/bert/
-/cashed-results/albert/
-/cashed-results/roberta/
-/cashed-results/xlmroberta/
+cached-results/
 
 /Report.pdf
