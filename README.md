@@ -58,7 +58,27 @@ After training multiple models, you can evaluate their ensemble performance by r
 ```bash
 python ensemble.py
 ```
-
+### Our Results
+| Model                   | Macro F1 | Accuracy |
+|-------------------------|----------|----------|
+| All NOT                 | 41.93    | 72.21    |
+| All OFF                 | 21.74    | 27.79    |
+| *Single Models*         |          |          |
+| BERT-base               | 90.93    | 92.26    |
+| BERT-large              | 91.42    | 92.74    |
+| RoBERTa-base            | 91.70    | 92.87    |
+| RoBERTa-large           | **91.86**| **93.10**|
+| RoBERTa-large MLM       | *91.99*  | *93.21*  |
+| ALBERT-large-v1         | 91.50    | 92.15    |
+| ALBERT-large-v2         | 91.49    | 92.13    |
+| ALBERT-xxlarge-v1       | 91.39    | 92.42    |
+| ALBERT-xxlarge-v2       | 91.55    | 92.91    |
+| *Ensembles*             |          |          |
+| BERT                    | 91.60    | 93.15    |
+| RoBERTa                 | 91.83    | 93.03    |
+| ALBERT-all              | **91.90**| **93.49**|
+| ALBERT-xxlargea         | 91.58    | 93.27    |
+All numbers are multiplied by 100 for clearer demonstration.
 
 ## Contributing
 
