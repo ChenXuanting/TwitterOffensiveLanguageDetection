@@ -59,6 +59,7 @@ After training multiple models, you can evaluate their ensemble performance by r
 python ensemble.py
 ```
 ### Our Results
+All numbers are multiplied by 100 for clearer demonstration.
 | Model                   | Macro F1 | Accuracy |
 |-------------------------|----------|----------|
 | All NOT                 | 41.93    | 72.21    |
@@ -78,7 +79,6 @@ python ensemble.py
 | RoBERTa                 | 91.83    | 93.03    |
 | ALBERT-all              | **91.90**| **93.49**|
 | ALBERT-xxlargea         | 91.58    | 93.27    |
-All numbers are multiplied by 100 for clearer demonstration.
 
 ## Contributing
 
